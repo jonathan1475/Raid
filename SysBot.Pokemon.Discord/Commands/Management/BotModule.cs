@@ -21,6 +21,7 @@ namespace SysBot.Pokemon.Discord
             var bots = me.Bots.Select(z => z.Bot).OfType<PokeRoutineExecutorBase>().ToArray();
             if (bots.Length == 0)
             {
+                await Context.Message.DeleteAsync();
                 await ReplyAsync("No bots configured.").ConfigureAwait(false);
                 return;
             }
@@ -64,6 +65,7 @@ namespace SysBot.Pokemon.Discord
             var bot = SysCord<T>.Runner.GetBot(ip);
             if (bot == null)
             {
+                await Context.Message.DeleteAsync();
                 await ReplyAsync($"No bot has that IP address ({ip}).").ConfigureAwait(false);
                 return;
             }
@@ -81,6 +83,7 @@ namespace SysBot.Pokemon.Discord
             var bot = SysCord<T>.Runner.GetBot(ip);
             if (bot == null)
             {
+                await Context.Message.DeleteAsync();
                 await ReplyAsync($"No bot has that IP address ({ip}).").ConfigureAwait(false);
                 return;
             }
@@ -133,6 +136,7 @@ namespace SysBot.Pokemon.Discord
             var bot = SysCord<T>.Runner.GetBot(ip);
             if (bot == null)
             {
+                await Context.Message.DeleteAsync();
                 await ReplyAsync($"No bot has that IP address ({ip}).").ConfigureAwait(false);
                 return;
             }
